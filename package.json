@@ -1,0 +1,22 @@
+{
+  "name": "mern-exmaple",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "cd client && npm i",
+    "build": "npm run client:build",
+    "start": "node server.js",
+    "client:dev": "cd client && npm start",
+    "client:build": "cd client && npm run build",
+    "server:dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.13",
+    "morgan": "^1.10.0"
+  }
+}
