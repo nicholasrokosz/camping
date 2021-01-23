@@ -9,6 +9,6 @@ const placeSchema = new Schema({
   coords: [{ longitude: Number, latitude: Number }],
 });
 
-const User = mongoose.model('User', userSchema);
+const Place = mongoose.model('Place', placeSchema);
 
-module.exports = User;
+module.exports = Place;
