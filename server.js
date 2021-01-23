@@ -17,11 +17,19 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tododb', {
 // API ROUTES
 // <-- JACOB
 
-app.get('/api/todos', (req, res) => {
+app.get('/api/users', (req, res) => {
   Todo.find({}).then(dbTodo => res.json(dbTodo));
 });
 
-app.post('/api/todos', (req, res) => {
+app.post('/api/users', (req, res) => {
+  Todo.create(req.body).then(dbTodo => res.json(dbTodo));
+});
+
+app.get('/api/campsites', (req, res) => {
+  Todo.find({}).then(dbTodo => res.json(dbTodo));
+});
+
+app.post('/api/campsites', (req, res) => {
   Todo.create(req.body).then(dbTodo => res.json(dbTodo));
 });
 
