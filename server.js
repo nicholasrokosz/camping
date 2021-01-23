@@ -6,9 +6,10 @@ const PORT = process.env.PORT || 8080;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-const Todo = require('./models/User'); // <-- ERIK
+const User = require('./models/User'); // <-- ERIK
+const Place = require('./models/Place'); // <-- ERIK
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tododb', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/campdb', {
   // <-- ERIK
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -18,19 +19,19 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/tododb', {
 // <-- JACOB
 
 app.get('/api/users', (req, res) => {
-  Todo.find({}).then(dbTodo => res.json(dbTodo));
+  User.find({}).then(data => res.json(data));
 });
 
 app.post('/api/users', (req, res) => {
-  Todo.create(req.body).then(dbTodo => res.json(dbTodo));
+  User.create(req.body).then(data => res.json(data));
 });
 
 app.get('/api/campsites', (req, res) => {
-  Todo.find({}).then(dbTodo => res.json(dbTodo));
+  Place.find({}).then(data => res.json(data));
 });
 
 app.post('/api/campsites', (req, res) => {
-  Todo.create(req.body).then(dbTodo => res.json(dbTodo));
+  Place.create(req.body).then(data => res.json(data));
 });
 
 // END API ROUTES
