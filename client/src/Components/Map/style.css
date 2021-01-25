@@ -1,0 +1,19 @@
+.container {
+    border: 5px solid;
+    border-radius: 5px;
+    width: 75vw;
+    height: 75vh;
+    margin-top: 5px;
+    margin-left: 5px;
+    box-shadow: 5px 10px 8px 10px #888888;
+  }
+  /* popup styling */
+  .mapboxgl-popup-content {
+    width: 150px;
+    color: black;
+    text-align: center;
+  }
+  .mapboxgl-popup-close-button {
+    display: none;
+  }
+  
