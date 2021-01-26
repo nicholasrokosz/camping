@@ -41,6 +41,24 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/campdb', {
 // API ROUTES
 // <-- JACOB
 
+// server.js
+
+// This route doesn't need authentication
+app.get('/api/public', function (req, res) {
+  res.json({
+    message:
+      "Hello from a public endpoint! You don't need to be authenticated to see this.",
+  });
+});
+
+// This route needs authentication
+app.get('/api/private', checkJwt, function (req, res) {
+  res.json({
+    message:
+      'Hello from a private endpoint! You need to be authenticated to see this.',
+  });
+});
+
 // app.get('/api/users', (req, res) => {
 //   User.find({}).then(data => res.json(data));
 // });
