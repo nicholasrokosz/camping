@@ -8,8 +8,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(router);
 
-const Place = require('./models/Place'); // <-- ERIK
-
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ParkPaldb', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
