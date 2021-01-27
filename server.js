@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 8080;
 const jwt = require('express-jwt');
 const jwtAuthz = require('express-jwt-authz');
 const jwksRsa = require('jwks-rsa');
-
+const router = require('./routes/apiRoutes')
 // Authorization middleware. When used, the
 // Access Token must exist and be verified against
 // the Auth0 JSON Web Key Set
@@ -29,10 +29,12 @@ const checkJwt = jwt({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(router)
+
 const User = require('./models/User'); // <-- ERIK
 const Place = require('./models/Place'); // <-- ERIK
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/campdb', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/ParkPaldb', {
   // <-- ERIK
   useNewUrlParser: true,
   useUnifiedTopology: true,
@@ -59,21 +61,7 @@ app.get('/api/private', checkJwt, function (req, res) {
   });
 });
 
-// app.get('/api/users', (req, res) => {
-//   User.find({}).then(data => res.json(data));
-// });
 
-// app.post('/api/users', (req, res) => {
-//   User.create(req.body).then(data => res.json(data));
-// });
-
-// app.get('/api/campsites', (req, res) => {
-//   Place.find({}).then(data => res.json(data));
-// });
-
-// app.post('/api/campsites', (req, res) => {
-//   Place.create(req.body).then(data => res.json(data));
-// });
 
 // END API ROUTES
 
