@@ -34,8 +34,7 @@ npm install
  * Erik Lowrance [GitHub Profile](https://github.com/eriklowrance)
  * Jacob Counts [GitHub Profile](https://github.com/jacobcounts)
 
-## Testing: 
-npm test
+
 
 ![](https://github.com/nicholasrokosz/camping/blob/main/images/screenshot.png)
 
