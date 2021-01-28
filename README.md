@@ -37,5 +37,5 @@ npm install
 ## Testing: 
 npm test
 
-! [](blob/main/images/screenshot.png)
+! [](main/images/screenshot.png)
 
