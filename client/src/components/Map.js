@@ -5,8 +5,8 @@ import ReactMapGL, { Marker, Popup } from 'react-map-gl';
 function Map() {
   const [showPopup, togglePopup] = React.useState(true);
   const [viewport, setViewport] = useState({
-    latitude: 39.8283,
-    longitude: -91.5795,
+    latitude: 35.8283,
+    longitude: -98.5795,
     width: '100vw',
     height: '100vh',
     zoom: 3.5,
