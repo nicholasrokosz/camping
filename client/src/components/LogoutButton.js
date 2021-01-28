@@ -7,9 +7,7 @@ function LogoutButton() {
 
   return (
     isAuthenticated && (
-      <Button primary onClick={() => logout()}>
-        Log Out
-      </Button>
+      <Button primary onClick={() => logout()} label='Log Out' />
     )
   );
 }
