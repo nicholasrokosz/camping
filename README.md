@@ -4,7 +4,8 @@
 
     
 ## Description: 
-Allows user to mark specific locations on a map
+Allows user to mark specific locations on a map. Perfect for the outdoor enthusiast. Gives the
+user the ability to mark those secret hiking trails and fishing holes.
 
 ## Table of Contents:
 
