@@ -37,5 +37,5 @@ npm install
 ## Testing: 
 npm test
 
-! [](screenshot.png)
+! [](https://github.com/nicholasrokosz/camping/blob/main/images/screenshot.png)
 
