@@ -31,8 +31,8 @@ npm install
 
 ## Contributing: 
  * Nick Rokosz [GitHub Profile](https://github.com/nicholasrokosz)
- * Erik Lowrance [GitHub Profile] (https://github.com/eriklowrance)
- * Jacob Counts
+ * Erik Lowrance [GitHub Profile](https://github.com/eriklowrance)
+ * Jacob Counts [GitHub Profile](https://github.com/jacobcounts)
 
 ## Testing: 
 npm test
