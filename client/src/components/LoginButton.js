@@ -1,13 +1,14 @@
-import React from "react";
-import { useAuth0 } from "@auth0/auth0-react";
+import React from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
+import { Button } from 'grommet';
 
 function LoginButton() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
   return (
     !isAuthenticated && (
-      <div>
-        <button onClick={() => loginWithRedirect()}>Log In</button>
-      </div>
+      <Button primary onClick={() => loginWithRedirect()} size='large'>
+        Log in
+      </Button>
     )
   );
 }
