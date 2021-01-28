@@ -1,8 +1,11 @@
 import { Attraction } from 'grommet-icons';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactMapGL, { Marker, Popup } from 'react-map-gl';
+import { useAuth0 } from '@auth0/auth0-react';
+import api from '../utils/api'
 
 function Map() {
+  const { user, isAuthenticated } = useAuth0();
   const [showPopup, togglePopup] = React.useState(true);
   const [viewport, setViewport] = useState({
     latitude: 39.8283,
@@ -12,6 +15,17 @@ function Map() {
     zoom: 3.5,
     minzoom: 3.5,
   });
+  
+  const [allLocations, setAllLocations] = useState([])
+  const [campsite, setCampsite] = useState({
+    title: "",
+    rating: "",
+    user: user ? user.sub : "",
+    latitude: 0,
+    longitude: 0
+  })
+  
+  
   const [newLocation, setNewLocation] = useState(null);
   const showNewMarker = e => {
     const [longitude, latitude] = e.lngLat;
@@ -20,11 +34,35 @@ function Map() {
       latitude,
       longitude,
     });
+    setCampsite({
+      ...campsite,
+      latitude: latitude,
+      longitude: longitude
+    })
   };
+  
+  useEffect(() => {
+    api.loadCampsite().then(results => {
+      setAllLocations(results.data)
+    })
+
+  }, [])
+  
+  function handleInputChange(e) {
+    const { name, value } = e.target
+    setCampsite({
+      ...campsite,
+      [name]: value
+    })
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log('hellowWorld');
+  
+    console.log('hellowWorld', campsite);
+    api.saveCampsite(campsite).then(results => {
+      console.log(results)
+    })
   }
 
   return (
@@ -39,9 +77,22 @@ function Map() {
         }}
         onDblClick={showNewMarker}
       >
-        {/* <Marker latitude={33.4484} longitude={-112.074}>
-          <Attraction />
-        </Marker> */}
+         {console.log(allLocations)}
+
+         {allLocations.length > 0 ? allLocations.filter(campsite => {
+           return campsite.user === (user ? user.sub : "")
+         }).map(campsite => {
+           return (
+            <Marker  latitude={campsite.latitude}
+            longitude={campsite.longitude}>
+        <Attraction />
+      </Marker>
+
+
+           )
+         }): ""}
+        
+       
         {newLocation ? (
           <>
             <Marker
@@ -63,9 +114,9 @@ function Map() {
                   // onSubmit= {handleSubmit}
                   >
                     <label htmlFor='title'>Title</label>
-                    <input name='title' />
+                    <input name='title' onChange={handleInputChange} value= {campsite.title} />
                     <label htmlFor='rating'>Rating</label>
-                    <input name='rating' />
+                    <input name='rating' onChange= {handleInputChange} value= {campsite.rating} />
                     <button onClick={handleSubmit}>Set </button>
                   </form>
                 </div>
