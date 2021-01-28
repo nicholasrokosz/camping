@@ -37,5 +37,5 @@ npm install
 ## Testing: 
 npm test
 
-! [](camping/blob/main/images/screenshot.png)
+! [](blob/main/images/screenshot.png)
 
