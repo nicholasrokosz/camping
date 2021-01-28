@@ -6,9 +6,7 @@ function LoginButton() {
   const { loginWithRedirect, isAuthenticated } = useAuth0();
   return (
     !isAuthenticated && (
-      <Button primary onClick={() => loginWithRedirect()} size='large'>
-        Log in
-      </Button>
+      <Button primary onClick={() => loginWithRedirect()} label='Log In' />
     )
   );
 }
