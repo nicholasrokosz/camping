@@ -37,6 +37,3 @@ npm install
 ## Testing: 
 npm test
 
-## Questions? I can be contacted with the links below:   
-* email: 
-* gitHub: [gitHub](https://github.com/)
