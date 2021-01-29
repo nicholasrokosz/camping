@@ -12,7 +12,7 @@
     "grommet-icons": "^4.5.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-map-gl": "^6.1.0",
+    "react-map-gl": "5.2.12",
     "react-scripts": "4.0.1",
     "styled-components": "^5.2.1",
     "web-vitals": "^0.2.4"
